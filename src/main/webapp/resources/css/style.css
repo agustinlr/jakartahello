@@ -7,3 +7,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Author     : Al-Design
 */
 
+ul, li::marker {
+  content: '✝ ';
+  font-size: 1.2em;
+  text-indent: 0px;
+}
