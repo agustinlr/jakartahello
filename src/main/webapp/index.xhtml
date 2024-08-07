@@ -111,7 +111,7 @@
       <div class="container">
          <h:form id="studentForm">
              <fieldset class="mt-4 bg-light p-5 rounded-3 shadow">
-      <h:messages class="pr-5 alert alert-danger"/>
+      <h:messages class="ps alert alert-danger"/>
 
           <div class="mb-3">
         <h:outputLabel class="form-label" for="firstName" value="First Name:">
@@ -119,6 +119,7 @@
         <h:inputText class="form-control" id="firstName"
           label="First Name"
           value="#{student.firstName}"
+          pt:placeholder="Tu nombre es:"
           required="true">
             validator="#{alphaValidator.validateAlpha}">
           <f:validateLength minimum="2" maximum="30"/>
@@ -130,6 +131,7 @@
         <h:inputText class="form-control" id="lastName"
                      label="Last Name"
                      value="#{student.lastName}"
+                     pt:placeholder="Tu apellido es:"
                      required="true"
                      validator="#{alphaValidator.validateAlpha}">
                      <f:validateLength minimum="2" maximum="30"/>
@@ -140,13 +142,15 @@
         </h:outputLabel>
         <h:inputText class="form-control" id="email"
           label="Email"
+          pt:placeholder="Escribe tu correo"
           value="#{student.email}">
-      
+          <f:validateLength minimum="3" maximum="30"/>
+          <f:validator validatorId="emailValidator" />
         </h:inputText>
       </div>
-      <div class="mb-3">
+      <div class="mb-3 d-grid gap-2">
         <h:panelGroup></h:panelGroup>
-        <h:commandButton class="btn btn-primary" action="information" value="Save">
+        <h:commandButton class="btn btn-primary " action="information" value="Save">
         </h:commandButton>
       </div>
 
