@@ -110,34 +110,48 @@
       <!--  <h:graphicImage library="images" class="img-fluid" name="hero.jpg"></h:graphicImage>-->
       <div class="container">
          <h:form id="studentForm">
-      <h:messages/>
-      <h:panelGrid columns="2"
-        columnClasses="rightAlign,leftAlign">
-        <h:outputLabel for="firstName" value="First Name:">
+             <fieldset class="mt-4 bg-light p-5 rounded-3 shadow">
+      <h:messages class="pr-5 alert alert-danger"/>
+
+          <div class="mb-3">
+        <h:outputLabel class="form-label" for="firstName" value="First Name:">
         </h:outputLabel>
-        <h:inputText id="firstName"
+        <h:inputText class="form-control" id="firstName"
           label="First Name"
           value="#{student.firstName}"
           required="true">
+            validator="#{alphaValidator.validateAlpha}">
           <f:validateLength minimum="2" maximum="30"/>
         </h:inputText>
-        <h:outputLabel for="lastName" value="Last Name:">
+        </div>
+      <div class="mb-3">
+        <h:outputLabel class="form-label" for="lastName" value="Last Name:">
         </h:outputLabel>
-        <h:inputText id="lastName"
+        <h:inputText class="form-control" id="lastName"
                      label="Last Name"
                      value="#{student.lastName}"
-                     required="true">
+                     required="true"
+                     validator="#{alphaValidator.validateAlpha}">
+                     <f:validateLength minimum="2" maximum="30"/>
         </h:inputText>
-        <h:outputLabel for="email" value="Email:">
+      </div>
+      <div class="mb-3">
+        <h:outputLabel class="form-label" for="email" value="Email:">
         </h:outputLabel>
-        <h:inputText id="email"
+        <h:inputText class="form-control" id="email"
           label="Email"
           value="#{student.email}">
+      
         </h:inputText>
+      </div>
+      <div class="mb-3">
         <h:panelGroup></h:panelGroup>
-        <h:commandButton action="information" value="Save">
+        <h:commandButton class="btn btn-primary" action="information" value="Save">
         </h:commandButton>
-      </h:panelGrid>
+      </div>
+
+      
+             </fieldset>
     </h:form>    
           
       </div>
